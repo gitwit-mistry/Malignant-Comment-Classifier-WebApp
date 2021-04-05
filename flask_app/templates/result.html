@@ -1,0 +1,52 @@
+{% extends "default.html" %}
+
+
+
+
+{% block content %}
+
+
+
+<style>
+   div {
+      width : 200px;	
+      height : 200px;				
+   } 
+</style>
+</head>
+
+
+     <div class="card blue-grey darken-1" >
+       <div class="card-content white-text">
+         <span class="card-title">These are the predictions for your comment....</span>
+         <body class = "container"> 
+            <h2>Results</h2>
+            
+            <hr/>
+            <table>
+               <thead>
+                  <tr>
+                     <th>COMMENT TYPE</th>
+                     <th>RESULT</th>
+                  </tr>
+               </thead>
+            
+               <tbody>
+                  {% for key, value in res_dict.items() %}
+      
+                  <tr>
+                     <th> {{ key }} </th>
+                     {% if value == 1 -%}
+                     <td> Yes! </td>
+                     {% else -%}
+                     <td> No. </td>
+                     {% endif %}
+                  </tr>
+              
+                  {% endfor %}
+               </tbody>
+            </table>
+     </div>
+ 
+
+{% endblock %}
